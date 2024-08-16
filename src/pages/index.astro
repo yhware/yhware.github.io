@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+
+import {getCollection} from "astro:content";
+
+const projects = (await getCollection("blog"))
+    .sort((a, b) => {
+        return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+    });
+
+const last_projects = projects.slice(0, 3);
+---
+
+
+<BaseLayout sideBarActiveItemID="home">
+    <div class="pb-12 mt-5">
+        <div class="text-xl py-1">Hey there 👋</div>
+        <div class="text-5xl font-bold">I'm Daniel Kim</div>
+        <div class="text-3xl py-3 font-bold">Software Engineer</div>
+        <div class="py-2">
+            <p class="text-lg">
+                🧑‍💻 4 years SWE experience in Backend & AWS<br/>
+                💼 Interned @ Microsoft, Samsung, Dish Network (EchoStar), EY, Accenture<br/>
+                📚 CS Master's student @ CU Boulder (Graduating May 2025)<br/>
+                🎮 Online Gaming Industry background<br/>
+                📍Boulder, CO
+            </p>
+        </div>
+
+        <div class="mt-4">
+            <a class="btn" href="/projects"> Projects</a>
+            <a href="/downloads/Daniel_Kim_Resume_Web.pdf" target="_blank" class="btn btn-outline ml-5">
+                Resume (PDF)
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <div class="text-3xl w-full font-bold mb-2">My Experiences</div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 mb-8">
+            <div class="home-logo col-span-1">
+                <img src="/images/home/logos/dish.webp"
+                     style={{width: "80px", height: "29px"}}
+                     alt="Dish Network"/>
+            </div>
+            <div class="home-logo col-span-1">
+                <img class="" src="/images/home/logos/samsung.svg" width="150" alt="Samsung"/>
+            </div>
+            <div class="home-logo col-span-1">
+                <img class="" src="/images/home/logos/microsoft.svg" width="140" alt="Microsoft"/>
+            </div>
+            <div class="home-logo col-span-1">
+                <img class="pt-2" src="/images/home/logos/nexon.svg" width="110" alt="NEXON"/>
+            </div>
+            <div class="home-logo col-span-1">
+                <img class="" src="/images/home/logos/accenture.svg" width="110" alt="Accenture"/>
+            </div>
+            <div class="home-logo col-span-1">
+                <img class="flex-none" src="/images/home/logos/ey.svg" style={{width: "40px", height: "40px"}}
+                     alt="EY"/>
+            </div>
+        </div>
+
+        <!--<div class="grid grid-flow-dense mb-8">-->
+        <!--    <img class="flex-none mt-2" src="/images/home/logos/dish.webp" style={{width: "80px", height: "29px"}}-->
+        <!--         alt="Dish Network"/>-->
+        <!--    <img class="flex-none mt-4" src="/images/home/logos/samsung.svg" width="130" alt="Samsung"/>-->
+        <!--    <img class="flex-none mt-4" src="/images/home/logos/microsoft.svg" width="140" alt="Microsoft"/>-->
+        <!--    <img class="flex-none mt-5" src="/images/home/logos/nexon.svg" width="110" alt="NEXON"/>-->
+        <!--    <img class="flex-none mt-2" src="/images/home/logos/accenture.svg" width="110" alt="Accenture"/>-->
+        <!--    <img class="flex-none" src="/images/home/logos/ey.svg" style={{width: "40px", height: "40px"}} alt="EY"/>-->
+        <!--</div>-->
+    </div>
+
+    <div class="mb-8">
+        <div class="text-3xl w-full font-bold mb-2">My Skills</div>
+
+        <ul class="list-image-[url(/images/checkmark.svg)] md:columns-5 columns-2 mx-6">
+            <li>&nbsp;Java</li>
+            <li>&nbsp;Kotlin</li>
+            <li>&nbsp;JavaScript</li>
+            <li>&nbsp;TypeScript</li>
+            <li>&nbsp;Python</li>
+            <li>&nbsp;Spring Boot</li>
+            <li>&nbsp;Node.js</li>
+            <li>&nbsp;AWS</li>
+            <li>&nbsp;OpenStack</li>
+            <li>&nbsp;Google Cloud</li>
+            <li>&nbsp;Kubernetes</li>
+            <li>&nbsp;MySQL</li>
+            <li>&nbsp;PostgreSQL</li>
+        </ul>
+
+        <div class="mt-3">
+            <a class="underline text-blue-700" href="/resume#skills">View full list</a>
+        </div>
+    </div>
+
+    <div>
+        <div class="text-3xl w-full font-bold mb-2">My Projects {"</>"}</div>
+    </div>
+    {
+        last_projects.map(project => (
+                <>
+                    <HorizontalCard
+                            title={project.data.title}
+                            img={project.data.heroImage}
+                            desc={project.data.description}
+                            url={"/blog/" + project.slug}
+                            target="_self"
+                            badge={project.data.badge}
+                    />
+                    <div class="divider my-0"></div>
+                </>
+        ))
+    }
+
+</BaseLayout>

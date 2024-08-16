@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="resume">
+  <div class="mb-5">
+    <div class="text-5xl w-full font-bold">Resume</div>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="University of Colorado, Boulder"
+      subtitle="Expected Graduation: May 2025. GPA: 3.8"
+    />
+    <TimeLineElement
+      title="University of London, Royal Holloway"
+      subtitle="Graduated 2016"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Cloud Engineer Intern @ Dish Network (EchoStar)"
+      subtitle="Jun 2024 - Aug 2024, CO, USA 🇺🇸"
+    >
+      <ul class="list-disc space-y-1 mb-6 ml-4 text-lg">
+        <li>Led PoC on OpenStack as VMware replacement, potentially saving licensing costs on over 20K bare-metal servers.</li>
+        <li>Developed Ansible Playbooks to automate VM provisioning and Kubernetes deployment, improving provisioning time by 90%.</li>
+        <li>Standardized OpenStack deployment using MicroStack, OpenStack Helm and Kolla Ansible.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+      title="Software Engineer II @ Nexon"
+      subtitle="Jan 2022 - Jul 2023, Seoul, Korea"
+    >
+      <ul class="list-disc space-y-1 mb-6 ml-4 text-lg">
+        <li>Devised a real-time disclosure platform, enabling 15+ games (Gross Revenue: $1.4B) to meet regulatory requirements.<br/>
+          <a class="underline" href="/blog/nexon-now" target="_blank">🔗 Project Blog</a>
+        </li>
+        <li>Rebuilt a data pipeline to handle 5TB+ parquet logs per hour using Athena and S3, optimizing cloud costs by 73%.</li>
+        <li>Contributed to an Open-Source project by adding reactive support, increasing observability coverage by 30%. <br/>
+          <a class="underline" href="https://github.com/getsentry/sentry-java/pull/1621" target="_blank">🔗 Pull Request</a>
+        </li>
+        <li>Implemented a snapshot service capable of saving 1K+ pages in under 5 mins, reducing debugging time by 21%.</li>
+        <li>Refactored server apps to use reactive handlers, reducing p95 response time by 40% and EC2 bill by $21K.</li>
+        <li>Led the adoption of observability tools, reducing Mean Time to Detection by 47%. <br/>
+          <a class="underline" href="/blog/mon-obsrv" target="_blank">🔗 Presentation</a>
+        </li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+        title="Software Engineer I @ Nexon"
+      subtitle="Jul 2019 - Dec 2021, Seoul, Korea"
+    >
+      <ul class="list-disc space-y-1 mb-6 ml-4 text-lg">
+        <li>Optimized notification service to serve 100K notifications with 99.99% uptime and <100ms p95 response time; Used Kafka to relieve backpressure and architected against hot partitions in DynamoDB, achieving 132% higher throughput than MySQL.</li>
+        <li>Developed real-time user H/W survey using Spark, automating a monthly 3-day task.</li>
+        <li>Integrated a central authorization service using Spring Security, streamlining new employee onboarding from 13 days to 1 day.</li>
+        <li>Incorporated an API Gateway for 11 internal APIs, improving the integration time from weeks to hours.</li>
+        <li>Created a survey platform to ask customers’ preferences on in-game items, resulting in a 13% increase in sales.</li>
+        <li>Standardized CI/CD pipelines, Git flows, and Kubernetes manifests, reducing deployment time by 49%.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+        title="Intern @ EY"
+        subtitle="May 2019 - Jun 2019, Seoul, Korea"
+    />
+    <TimeLineElement
+        title="Admin Specialist @ Korean Military (Mandatory Service)"
+        subtitle="Jul 2017 - Mar 2019, Seoul, Korea"
+    />
+    <TimeLineElement
+        title="Intern @ Accenture"
+        subtitle="Jun 2015 - Sep 2015, Seoul, Korea"
+    />
+    <TimeLineElement
+        title="Intern @ Samsung UK"
+        subtitle="Jun 2014 - Sep 2014, London, UK 🇬🇧"
+    />
+    <TimeLineElement
+        title="Intern @ Microsoft Korea"
+        subtitle="Dec 2013 - Feb 2014, Seoul, Korea"
+    />
+    <TimeLineElement
+        title="Intern @ Microsoft UK"
+        subtitle="Jun 2012 - Sep 2012, Reading, UK 🇬🇧"
+    />
+
+  </div>
+
+  <!--<div class="mb-5">-->
+  <!--  <div class="text-3xl w-full font-bold">Certifications</div>-->
+  <!--</div>-->
+
+  <!--<ul class="list-disc mx-6 mb-10 grid gap-2">-->
+  <!--  <li>-->
+  <!--    <a href="#" target="_blank"> Certification Name (with link)</a>-->
+  <!--  </li>-->
+  <!--  <li>-->
+  <!--    <a href="#" target="_blank"> Certification Name (with link)</a>-->
+  <!--  </li>-->
+  <!--</ul>-->
+
+  <div class="mb-3" id="skills">
+    <div class="text-3xl w-full">Skills</div>
+  </div>
+
+
+  <div class="mb-2 mt-5">
+    <div class="text-xl w-full">Programming Languages</div>
+  </div>
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Java</li>
+    <li>Kotlin</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+    <li>TypeScript</li>
+    <li>SQL</li>
+    <li>Bash</li>
+    <li>CSS</li>
+  </ul>
+
+  <div class="mb-2 mt-5">
+    <div class="text-xl w-full">Web Frameworks</div>
+  </div>
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Spring Framework (Spring Boot)</li>
+    <li>Express</li>
+    <li>Flask</li>
+    <li>React</li>
+    <li>FastAPI</li>
+    <li>Django</li>
+  </ul>
+
+  <div class="mb-2 mt-5">
+    <div class="text-xl w-full">Cloud</div>
+  </div>
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>OpenStack</li>
+    <li>AWS</li>
+    <li>GCP</li>
+    <li>EC2</li>
+    <li>EKS</li>
+    <li>Lambda</li>
+    <li>Step Functions</li>
+    <li>S3</li>
+    <li>RDS</li>
+    <li>ElastiCache</li>
+    <li>DynamoDB</li>
+    <li>OpenSearch</li>
+    <li>Glue</li>
+    <li>Athena</li>
+    <li>CloudFront</li>
+    <li>VPC networking</li>
+    <li>WAF</li>
+    <li>IAM</li>
+    <li>SQS</li>
+    <li>Amplify</li>
+    <li>SNS</li>
+    <li>EventBridge</li>
+    <li>CloudWatch</li>
+    <li>GCE</li>
+    <li>BigQuery</li>
+  </ul>
+
+  <div class="mb-2 mt-5">
+    <div class="text-xl w-full">Tools</div>
+  </div>
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Linux</li>
+    <li>Kubernetes</li>
+    <li>Ansible</li>
+    <li>MySQL</li>
+    <li>PostgreSQL</li>
+    <li>Redis</li>
+    <li>Elasticsearch</li>
+    <li>MongoDB</li>
+    <li>Docker</li>
+    <li>ArgoCD</li>
+    <li>Terraform (IaaC)</li>
+    <li>GitLab CI</li>
+    <li>Jenkins</li>
+    <li>Rundeck</li>
+    <li>TeamCity</li>
+    <li>Git</li>
+    <li>Spark</li>
+    <li>Kafka</li>
+    <li>Airflow</li>
+    <li>Presto</li>
+    <li>Prometheus</li>
+    <li>Grafana</li>
+    <li>Sentry</li>
+    <li>Datadog</li>
+    <li>New Relic</li>
+    <li>JMeter</li>
+    <li>Locust</li>
+  </ul>
+</BaseLayout>
